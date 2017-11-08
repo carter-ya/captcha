@@ -5,8 +5,10 @@ package com.ifengxue.captcha;
  *
  * @param <S> 发送结果
  * @param <V> 验证结果
+ * @param <E> environment
+ * @param <C> captcha
  */
-public interface Captcha<S, V> extends CaptchaConfigurable {
+public interface Captcha<S, V, C, E> extends CaptchaConfigurable<C, S, E> {
 
   /**
    * 发送验证码

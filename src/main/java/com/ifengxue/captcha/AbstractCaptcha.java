@@ -2,8 +2,7 @@ package com.ifengxue.captcha;
 
 import java.util.concurrent.TimeUnit;
 
-@SuppressWarnings("unchecked")
-public abstract class AbstractCaptcha<S, V> implements Captcha<S, V> {
+public abstract class AbstractCaptcha<S, V, C, E> implements Captcha<S, V, C, E> {
 
   protected TimeUnit timeUnit = DEFAULT_TIME_UNIT;
   protected long validPeriod = UNLIMITED;

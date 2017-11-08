@@ -5,7 +5,7 @@ import com.ifengxue.captcha.generator.CaptchaGenerator;
 import com.ifengxue.captcha.sender.CaptchaSender;
 import java.util.concurrent.TimeUnit;
 
-public interface CaptchaConfigurable {
+public interface CaptchaConfigurable<C, S, E> {
 
   TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MINUTES;
   /**
@@ -13,11 +13,11 @@ public interface CaptchaConfigurable {
    */
   long UNLIMITED = -1;
 
-  <C, E> void setCaptchaGenerator(CaptchaGenerator<C, E> captchaGenerator);
+  void setCaptchaGenerator(CaptchaGenerator<C, E> captchaGenerator);
 
-  <S, E> CaptchaConfigurable setCaptchaSender(CaptchaSender<S, E> sender);
+  CaptchaConfigurable setCaptchaSender(CaptchaSender<S, E> sender);
 
-  <S, E> CaptchaConfigurable addSendChecker(SenderChecker<S, E> checker);
+  CaptchaConfigurable addSendChecker(SenderChecker<S, E> checker);
 
   /**
    * 设置时间单位
